@@ -1,13 +1,209 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background-image: url(https://image.freepik.com/free-vector/seamless-mango-pattern_1561-19.jpg);
+  background-size: auto auto;
+  background-color: blue;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  font-size:.8rem;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+
+#Header {
+  background-color: bisque;
+  border-bottom: outset;
+  max-width: 60rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+#Header>img {
+  width: 4rem;
+  margin: 10px;
+}
+
+.hms {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  flex-direction: row;
+  font-size: 1rem;
+  height:fit-content;
+}
+
+.hms>h1 {
+  padding: 5px;
+}
+
+.App {
+  background-color: hsla(10, 23%, 60%, 0.2);
+  min-width: 20rem;
+  max-width: 60rem;
+  min-height: 15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.Session {
+  padding-bottom: 1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Session>h1 {
+  background-color: white;
+  border-style: outset;
+  padding: 5px;
+}
+
+.disTime{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  height:40px;
+  font-size:.8rem;
+  padding:2px;
+}
+
+.sessionNumber {
+  border-style: inset;
+  font-size: 2rem;
+  align-items: center;
+  width: 3.5rem;
+  background-color: white;
+}
+
+.Session button {
+  cursor: pointer;
+  text-align: center;
+  background-color: white;
+
+}
+
+.displayTimers {
+  border-style: inset;
+  height:150px;
+  width:300px;
+}
+
+
+.impbutton {
+  background-color: white;
+  font-size:1rem;
+  width:50%;
+}
+
+#workWork {
+  width: 50%;
+  border-bottom: inset;
+  border-right: inset;
+  color: white;
+  background-image: linear-gradient(darkblue, blue);
+}
+
+#breakWork {
+  width: 50%;
+  border-bottom: outset;
+  background-color: blue;
+}
+
+#breakBreak {
+  width: 50%;
+  border-left: outset;
+  border-bottom: inset;
+  color: white;
+  background-image: linear-gradient(pink, red);
+  background-color: red;
+}
+
+#workBreak {
+  width: 50%;
+  background-color: red;
+  border-bottom: outset;
+}
+
+.breakOrWork {
+  width: 50%;
+  background-color: transparent;
+  border-style: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+#setTimers {
+  display: flex;
+  flex-direction: column;
+  font-size: .7rem;
+}
+
+.TitleDisplay {
+  background-color: white;
+}
+
+.sessionDisplay {
+  background-color: white;
+  display: flex;
+  justify-content: row;
+}
+
+.TimeDisplay {
+  font-size: 1rem;
+  border-style: inset;
+}
+
+
+#wowScore {
+  background-color: white;
+  border-style: inset;
+}
+
+#rewards {
+  margin: 0 auto;
+  width: 80rem;
+  justify-content: center;
+}
+
+.rewardsGif {
+  width: 15rem;
+}
+
+.hms {
+  font-size: .9rem;
+}
+
+@media only screen and (max-width: 600px) {
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    background-color: lightblue;
+  }
+  .App {
+    min-width: none;
+    display: flex;
+    flex-direction: column;
+  }
+  .displayTimers {
+    order: -1;
+  }
+  #setTimers {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+* {
+  box-sizing: border-box;
 }
