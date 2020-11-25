@@ -90,6 +90,7 @@ function App() {
     setPauseBreak(false);
     setBreakTimer(prevTimer => prevTimer + 300);
     setDisplayBreak(prevTimer => prevTimer + 300)
+    setResetBreakTime(prevBreakTime => prevBreakTime + 300)
   }
 
   function decrementBreak() {
