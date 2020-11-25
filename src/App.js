@@ -77,12 +77,31 @@ function App() {
     }
   }
 
+  function sincrement() {
+    if (!isRunning) {
+      setIsRunning(false);
+      setTimer(prevTimer => prevTimer + 60);
+      setResetTime(prevResetTime => prevResetTime + 60);
+      setDisplayWork(prevTimer => prevTimer + 60)
+    }
+  }
+
   function decrement() {
     if (!isRunning & timer > 300) {
       setIsRunning(false);
       setTimer(prevTimer => prevTimer - 300);
       setResetTime(prevResetTime => prevResetTime - 300);
       setDisplayWork(prevTimer => prevTimer - 300)
+    }
+  }
+
+  
+  function sdecrement() {
+    if (!isRunning & timer > 60) {
+      setIsRunning(false);
+      setTimer(prevTimer => prevTimer - 60);
+      setResetTime(prevResetTime => prevResetTime - 60);
+      setDisplayWork(prevTimer => prevTimer - 60)
     }
   }
 
@@ -93,11 +112,26 @@ function App() {
     setResetBreakTime(prevBreakTime => prevBreakTime + 300)
   }
 
+  function sincrementBreak() {
+    setPauseBreak(false);
+    setBreakTimer(prevTimer => prevTimer + 60);
+    setDisplayBreak(prevTimer => prevTimer + 60)
+    setResetBreakTime(prevBreakTime => prevBreakTime + 60)
+  }
+
   function decrementBreak() {
     if (breakTimer > 300) {
       setPauseBreak(false);
       setBreakTimer(prevTimer => prevTimer - 300);
       setDisplayBreak(prevTimer => prevTimer - 300)
+    }
+  }
+
+  function sdecrementBreak() {
+    if (breakTimer > 60) {
+      setPauseBreak(false);
+      setBreakTimer(prevTimer => prevTimer - 60);
+      setDisplayBreak(prevTimer => prevTimer - 60)
     }
   }
 
@@ -185,6 +219,7 @@ function App() {
         setIsRunning(false)
         setTimer(resetTime)
         setStartBreak(true)
+        setPauseBreak(false)
         setBreakTimer(initialBreakTime)
         rewards()
         incrementWowScore()
@@ -206,7 +241,7 @@ function App() {
       // }, 100)
       setStartBreak(false)
       setSession(4)
-      rewards2()
+      // rewards2()
     }
   }, [isRunning, session, timer])
 
@@ -218,7 +253,7 @@ function App() {
       }, 1000);
       if (breakTimer === 0 && session > 0) {
         setStartBreak(false)
-        setIsRunning(true)
+        // setIsRunning(true)
         setBreakTimer(initialBreakTime)
         breakAudio.load()
         breakAudio.play()
@@ -275,27 +310,32 @@ function App() {
           <div class="Session">
             <h1 className="TitleDisplay">Set Work Timer </h1>
             <div className="sessionDisplay">
-              <button className="buttons" onClick={() => decrement()}>-</button>
+            <button className="buttons" onClick={() => sdecrement()}>-1</button>
+              <button className="buttons" onClick={() => decrement()}>-5</button>
               <div className="TimeDisplay" >
                 <div class="disTime">
                   <h1 style={dwhours === "00" ? { display: "none" } : { display: "" }}>{dwhours}h</h1>
                   <h1>{dwminutes}m</h1>
                 </div>
               </div>
-              <button className="buttons" onClick={() => increment()}>+</button>
+              <button className="buttons" onClick={() => increment()}>+5</button>
+              <button className="buttons" onClick={() => sincrement()}>+1</button>
+              
             </div>
           </div>
           <div class="Session">
             <h1 className="TitleDisplay" >Set Break Timer</h1>
             <div className="sessionDisplay">
-              <button className="buttons" onClick={() => decrementBreak()}>-</button>
+            <button className="buttons" onClick={() => sdecrementBreak()}>-1</button>
+              <button className="buttons" onClick={() => decrementBreak()}>-5</button>
               <div className="TimeDisplay"> 
               <div class="disTime">
                   <h1 style={dbhours === "00" ? { display: "none" } : { display: "" }}>{dbhours}h</h1>
                   <h1>{dbminutes}m</h1>
                 </div>
                </div>
-              <button className="buttons" onClick={() => incrementBreak()}>+</button>
+              <button className="buttons" onClick={() => incrementBreak()}>+5</button>
+              <button className="buttons" onClick={() => sincrementBreak()}>+1</button>
             </div>
           </div>
         </div>
